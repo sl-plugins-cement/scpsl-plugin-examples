@@ -1,54 +1,50 @@
-# Cross-plugin character roles
+# 跨插件角色检测
 
-[简体中文](README.zh-CN.md)
+[English](README.en.md)
 
-This is the smallest complete example of one LabAPI plugin detecting a character role owned by
-another plugin.
+这是一个最小但完整的 LabAPI 示例：一个插件检测由另一个插件管理的角色。
 
-- `RoleProvider` owns an overlay role named `example.instructor`. It assigns that role to every
-  Facility Guard so the example can be tested without commands or configuration.
-- `RoleConsumer` listens for `PlayerEvents.ChangedRole` and asks the provider's public API whether the
-  changed player has an overlay role.
-- Neither plugin changes gameplay. The provider only records metadata, and the consumer only logs.
+- `RoleProvider` 管理名为 `example.instructor` 的叠加角色。为了无需命令和配置即可测试，
+  所有设施警卫都会获得该示例角色。
+- `RoleConsumer` 监听 `PlayerEvents.ChangedRole`，然后通过提供者的公开 API 查询刚切换角色的玩家。
+- 两个插件都不会改变玩法。提供者只保存角色元数据，消费者只写入服务器日志。
 
-The cross-plugin call is intentionally one line:
+跨插件调用只有一行：
 
 ```csharp
 if (CharacterRoleApi.TryGetRole(player, out string roleId))
 {
-    // This role belongs to the provider plugin.
+    // 这个角色由提供者插件管理。
 }
 ```
 
-## Why this shape
+## 为什么使用这种结构
 
-The provider owns its state and exposes a narrow public query. The consumer uses a normal project
-reference with `Private="false"`, so the compiler checks the API while the server still loads exactly
-one copy of each plugin DLL. `RoleProvider` uses `LoadPriority.Highest`; `RoleConsumer` uses
-`LoadPriority.Lowest`.
+提供者拥有自己的状态，只公开一个很小的查询接口。消费者使用带 `Private="false"` 的普通
+项目引用，因此编译器能够检查 API，同时服务器只加载每个插件 DLL 的一个副本。
+`RoleProvider` 使用 `LoadPriority.Highest`，`RoleConsumer` 使用 `LoadPriority.Lowest`。
 
-This is a required dependency example. Install both DLLs. If the provider may be absent, define a
-small contracts assembly or add a carefully contained optional-integration adapter; do not reach into
-another plugin's private fields.
+这是“必需依赖”示例，安装时必须同时放置两个 DLL。如果提供者可能不存在，应创建一个小型
+契约程序集，或编写隔离良好的可选集成适配器；不要读取另一个插件的私有字段。
 
-## Build and test
+## 构建与测试
 
-From the repository root:
+在仓库根目录运行：
 
 ```powershell
 dotnet build ScpslPluginExamples.sln -c Release
 ```
 
-Copy both files to the same LabAPI plugin directory and restart the local server:
+把以下两个文件复制到同一个 LabAPI 插件目录，然后重启本地服务器：
 
 - `RoleProvider/bin/Release/Example.CharacterRoleProvider.dll`
 - `RoleConsumer/bin/Release/Example.CharacterRoleConsumer.dll`
 
-Use RA to change a player to Facility Guard. After the role change, the server log should contain:
+在 RA 中把一名玩家切换为设施警卫。角色切换后，服务器日志应显示：
 
 ```text
 [RoleConsumerExample] Detected PlayerName as 'example.instructor' from the provider plugin.
 ```
 
-Changing the player to another native role removes the overlay. There are no configs, player
-commands, RA commands, hints, or known plugin conflicts in this example.
+把玩家切换为其他原生角色后，叠加角色会被移除。此示例没有配置、玩家命令、RA 命令、
+提示文本或已知插件冲突。
