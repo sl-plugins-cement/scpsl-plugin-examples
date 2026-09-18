@@ -1,9 +1,18 @@
 # SCPSL Plugin Examples
 
+## Repository visibility and language policy
+
+**OSS: no** — GitHub remotes are private. Checked 2026-09-18.
+GitHub: [sl-plugins-cement/scpsl-plugin-examples](https://github.com/sl-plugins-cement/scpsl-plugin-examples) (private).
+
+- OSS means public on GitHub for this policy. Record the owning repository's status here; recheck GitHub visibility when remotes or publication status change. A nested repository has its own status.
+- Maintain English user-facing documentation; Chinese translations are optional for this non-OSS repository.
+- Player-facing text (UI, hints, broadcasts, prompts, and player-command responses) must be Chinese only. Do not add English alternatives or client-language switching.
+- Developer instructions, code identifiers, command syntax, and host/operator documentation remain English. Preserve proper names and native labels.
+
 - This repository teaches LabAPI plugin development through small, buildable examples.
 - `src/ToyTricksDemo` is a complete source copy of the local ToyTricksDemo reference plugin.
 - Keep `examples/CrossPluginRoles` intentionally small: one provider, one consumer, and one public query surface.
 - Keep each loadable plugin in its own project and assembly.
-- User-facing documentation must stay available in English and Simplified Chinese as separate files.
+- Maintain English user-facing documentation; Chinese translations are optional for this non-OSS repository.
 - Build all projects before completion; live-check gameplay-facing changes on a local test server when practical.
-
