@@ -1,4 +1,4 @@
-# Cement 协作者从这里开始
+# 可以看看这些（ai写的参考就行 有问题 @我）
 
 本批课程目前在 `onboarding-foundations-zh` 审阅分支；下方命令明确克隆该分支。
 
