@@ -5,29 +5,44 @@
       "commit": "f261cdb9212e8b2c59556e74cb60b48337e9be3c",
       "directory": "ServerKeybinds",
       "project": "ServerKeybinds.csproj",
-      "assembly": "ServerKeybinds.dll"
+      "outputs": [
+        {
+          "path": "bin/Release/net48/ServerKeybinds.dll",
+          "file": "ServerKeybinds.dll"
+        }
+      ]
     },
     {
       "url": "https://github.com/sl-plugins-cement/customitems.git",
       "commit": "966d5ca4b123ab0a610da60eea6320421801877a",
       "directory": "CustomItems",
       "project": "CustomItems.csproj",
-      "assembly": "CustomItems.dll"
+      "outputs": [
+        {
+          "path": "bin/Release/net48/CustomItems.dll",
+          "file": "CustomItems.dll"
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/sl-plugins-cement/HintServiceMeow.git",
+      "commit": "2766bd1d84987d4854706b0eda6d9bd9eba89f81",
+      "directory": "HintServiceMeow",
+      "project": "HintServiceMeow/HintServiceMeow.csproj",
+      "outputs": [
+        {
+          "path": "bin/Release/HintServiceMeow.dll",
+          "file": "HintServiceMeow.dll"
+        },
+        {
+          "path": "bin/Release/0Harmony.dll",
+          "file": "0Harmony.dll"
+        }
+      ]
     }
   ],
   "hsm": {
-    "version": "V5.5.1",
-    "assets": [
-      {
-        "file": "HintServiceMeow.dll",
-        "url": "https://github.com/MeowServer/HintServiceMeow/releases/download/V5.5.1/HintServiceMeow-LabAPI.dll",
-        "sha256": "5dbd4a2b6b4fb8d6886a52f6d8e445591d8217c85072feeb0407cdfae001de56"
-      },
-      {
-        "file": "0Harmony.dll",
-        "url": "https://github.com/MeowServer/HintServiceMeow/releases/download/V5.5.1/0Harmony.dll",
-        "sha256": "77e6901ecc606aec66c2a972782a3779e4f50c037d2d165eb7ececdd4d8f794d"
-      }
-    ]
+    "source": "HintServiceMeow",
+    "version": "5.5.1-cement.1"
   }
 }

@@ -13,8 +13,8 @@
 | `.dependencies/ServerKeybinds.dll` | `dependencies/global/` |
 | `.dependencies/CustomItems.dll` | `dependencies/global/` |
 | `bin/Release/Example.CementFoundations.dll`（本项目目录下） | `plugins/<测试端口>/` |
-| `.dependencies/HintServiceMeow.dll`（`-DownloadHsm` 下载的官方 LabAPI 版） | `plugins/<测试端口>/` |
-| `.dependencies/0Harmony.dll`（同一官方发布附带） | `dependencies/<测试端口>/`，已有全局兼容版本时不要重复安装 |
+| `.dependencies/HintServiceMeow.dll`，由锁定的 Cement 源码构建 | `plugins/<测试端口>/` |
+| `.dependencies/0Harmony.dll`，由 HSM 构建输出 | `dependencies/<测试端口>/`，已有全局兼容版本时不要重复安装 |
 
 同一个共享库只安装一份，不在插件目录再放一份。使用本次构建的依赖，旧版 ServerKeybinds 不一定包含教学 ID 区块。
 替换 DLL 后重启该测试端口。不要用同时覆盖所有端口的自动部署选项。

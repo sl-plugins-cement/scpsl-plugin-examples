@@ -1,5 +1,7 @@
 # HSM 界面与样式指南
 
+本课程使用 [Cement HSM 源码分支](https://github.com/sl-plugins-cement/HintServiceMeow)。构建版本由 `dependencies.json` 锁定。
+
 本页把 **HSM 接口行为**、**实测定位约束** 与 **Cement 设计约定** 分开说明。
 颜色、字号和教学位置是可调整的设计选择；不能把示例坐标当成所有插件共同占用的固定位置。
 

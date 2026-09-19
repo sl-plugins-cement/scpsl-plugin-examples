@@ -2,6 +2,7 @@
     [string]$ManagedPath = 'C:\Program Files (x86)\Steam\steamapps\common\SCP Secret Laboratory Dedicated Server\SCPSL_Data\Managed',
     [string]$SourceRoot,
     [switch]$UseLocalSources,
+    # 兼容原调用参数。HSM 现在始终从锁定源码构建。
     [switch]$DownloadHsm
 )
 $ErrorActionPreference = 'Stop'
@@ -34,19 +35,9 @@ foreach ($dependency in $manifest.repositories) {
     $buildArgs = @('build', (Join-Path $destination $dependency.project), '-c', 'Release', "-p:SCP_SL_MANAGED=$ManagedPath", '-p:DeployToLocalServer=false')
     if ($dependency.directory -eq 'CustomItems') { $buildArgs += "-p:ServerKeybindsPath=$(Join-Path $deps 'ServerKeybinds.dll')" }
     Invoke-Checked 'dotnet' $buildArgs
-    Copy-Item -LiteralPath (Join-Path $destination "bin\Release\net48\$($dependency.assembly)") -Destination $deps -Force
+    foreach ($artifact in $dependency.outputs) {
+        Copy-Item -LiteralPath (Join-Path $destination $artifact.path) -Destination (Join-Path $deps $artifact.file) -Force
+    }
 }
 Invoke-Checked 'dotnet' @('build', (Join-Path $repoRoot 'examples\Foundations\Foundations.csproj'), '-c', 'Release', "-p:SCP_SL_MANAGED=$ManagedPath", '-p:DeployToLocalServer=false')
-if ($DownloadHsm) {
-    foreach ($asset in $manifest.hsm.assets) {
-        $target = Join-Path $deps $asset.file
-        $temporary = "$target.download"
-        try {
-            Invoke-WebRequest -Uri $asset.url -OutFile $temporary -UseBasicParsing
-            if ((Get-FileHash -LiteralPath $temporary -Algorithm SHA256).Hash -ne $asset.sha256) { throw "下载文件校验失败：$($asset.file)" }
-            Move-Item -LiteralPath $temporary -Destination $target -Force
-        } finally { if (Test-Path -LiteralPath $temporary) { Remove-Item -LiteralPath $temporary } }
-    }
-    Write-Host '已下载并校验锁定版本的 HSM 与其 Harmony 依赖；文件仍在 .dependencies，尚未安装。'
-}
 Write-Host '构建完成。依赖位于 .dependencies，示例位于 examples\Foundations\bin\Release。尚未部署到任何服务器。'
