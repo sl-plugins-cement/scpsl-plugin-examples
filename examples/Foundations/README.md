@@ -13,7 +13,7 @@
 | `.dependencies/ServerKeybinds.dll` | `dependencies/global/` |
 | `.dependencies/CustomItems.dll` | `dependencies/global/` |
 | `bin/Release/Example.CementFoundations.dll`（本项目目录下） | `plugins/<测试端口>/` |
-| `.dependencies/HintServiceMeow.dll`，由锁定的 Cement 源码构建 | `plugins/<测试端口>/` |
+| `.dependencies/HintServiceMeow.dll`，由锁定的 HSM 源码构建 | `plugins/<测试端口>/` |
 | `.dependencies/0Harmony.dll`，由 HSM 构建输出 | `dependencies/<测试端口>/`，已有全局兼容版本时不要重复安装 |
 
 同一个共享库只安装一份，不在插件目录再放一份。使用本次构建的依赖，旧版 ServerKeybinds 不一定包含教学 ID 区块。
@@ -30,7 +30,7 @@ cement clear
 
 `gallery` 显示 12 秒画廊；需要存活角色才能看到。`give` 只向执行者发放，背包满时不发放。
 `clear` 关闭画廊；如果仍手持教学硬币，其状态 HUD 会继续显示。
-服务器专属设置的 Tools 分类下可以看到“Cement 入门练习”。接受 V 建议或另行绑定，然后手持硬币使用。
+服务器专属设置的 Tools 分类下可以看到“入门练习”。接受 V 建议或另行绑定，然后手持硬币使用。
 隐藏 HUD 不会禁止使用物品。把硬币交给其他玩家后，冷却跟随序列号，不能通过转交重置。
 
 ## 生命周期与边界

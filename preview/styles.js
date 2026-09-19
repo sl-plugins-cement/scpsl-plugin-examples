@@ -6,7 +6,7 @@ const cementStyles = [
       {
         "id": "cement.foundations.title",
         "system": "hsm",
-        "text": "<color=#4FCBFF>CEMENT · 入门练习</color>",
+        "text": "<color=#4FCBFF>入门练习</color>",
         "x": 0,
         "y": 650,
         "textSize": 30,

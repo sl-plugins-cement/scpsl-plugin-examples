@@ -6,9 +6,9 @@
 
 本批课程覆盖 ServerKeybinds、CustomItems 与 HSM；请先运行 scripts/build-foundations.ps1 获取锁定依赖，再构建整个解决方案。协作要求见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
-HSM 使用 [Cement 维护的源码分支](https://github.com/sl-plugins-cement/HintServiceMeow)，由构建脚本按提交号获取。
+HSM 使用 [本组织维护的源码分支](https://github.com/sl-plugins-cement/HintServiceMeow)，由构建脚本按提交号获取。
 
-这是为 GitHub `sl-plugins-cement` 组织中的 Cement 团队准备的 LabAPI 教学仓库。每个示例都可以
+这是为 GitHub `sl-plugins-cement` 组织的协作者准备的 LabAPI 教学仓库。每个示例都可以
 直接阅读源码并独立构建，只演示一个重点，不会用额外框架隐藏关键代码。
 
 ## 包含的项目

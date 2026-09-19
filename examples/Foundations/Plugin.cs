@@ -18,7 +18,7 @@ namespace Cement.Foundations;
 public sealed class FoundationsPlugin : Plugin
 {
     public override string Name => "Example.CementFoundations";
-    public override string Description => "Cement 中文教学：HSM 样式、共享按键、自定义物品。";
+    public override string Description => "基础教学：HSM 样式、共享按键、自定义物品。";
     public override string Author => "Cement";
     public override Version Version => new(1, 0, 0);
     public override Version RequiredApiVersion => new(LabApiProperties.CompiledVersion);
@@ -39,7 +39,7 @@ public sealed class FoundationsPlugin : Plugin
         hints = HsmHints.Create();
         block = KeybindRegistry.ClaimBlock(SssIdBlocks.CementExamples, Name)
             .InCategory(SettingsCategory.Tools)
-            .Header("Cement 入门练习")
+            .Header("入门练习")
             .VisibleTo(p => p.IsAlive)
             .AddTextArea(3, "请手动接受建议按键 V，或自行绑定。手持教学硬币才能触发练习。")
             .Add(1, "使用教学硬币", KeyCode.V, "触发一次演示脉冲，冷却 5 秒。", Use)
@@ -130,7 +130,7 @@ public sealed class FoundationsPlugin : Plugin
                 galleryMode[player] = gallery;
                 if (gallery)
                 {
-                    hints.Show(player, "title", "<color=#4FCBFF>CEMENT · 入门练习</color>", 650f, 30);
+                    hints.Show(player, "title", "<color=#4FCBFF>入门练习</color>", 650f, 30);
                     hints.Show(player, "status", "<color=#E7ECF3>教学硬币</color>  <color=#5BFF80>已就绪</color>", 700f, 24);
                     hints.Show(player, "detail", "<color=#C0C8D4>手持物品后，使用你绑定的按键</color>", 745f, 22);
                 }

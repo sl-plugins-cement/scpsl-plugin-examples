@@ -10,10 +10,10 @@
 | [scpsl-plugin-examples](https://github.com/sl-plugins-cement/scpsl-plugin-examples) | 中文教程、样式预览、可构建的完整示例 | 本页 |
 | [serverkeybinds](https://github.com/sl-plugins-cement/serverkeybinds) | 统一管理服务器专属设置与按键 | `docs/入门.md` |
 | [customitems](https://github.com/sl-plugins-cement/customitems) | 物品序列号身份与持有模型工具 | `docs/入门.md` |
-| [HintServiceMeow](https://github.com/sl-plugins-cement/HintServiceMeow) | Cement 维护的 HSM 源码分支 | `README.md` |
+| [HintServiceMeow](https://github.com/sl-plugins-cement/HintServiceMeow) | 本组织维护的 HSM 源码分支 | `README.md` |
 
 库接口说明放在对应仓库。完整教学插件放在示例仓库。
-这些库是共享依赖 DLL，不是独立玩法插件。HSM 是另一个项目；本仓库讲它的用法及 Cement 的界面约定。
+这些库是共享依赖 DLL，不是独立玩法插件。HSM 是另一个项目；本仓库讲它的用法及 本课程的界面约定。
 
 ## 第一次构建
 
@@ -33,7 +33,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-foundations.ps
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-foundations.ps1 -ManagedPath 'D:\Servers\SCPSL\SCPSL_Data\Managed'
 ```
 
-脚本按 `dependencies.json` 中的完整提交号获取依赖，构建 ServerKeybinds、CustomItems、Cement HSM 和教学插件。
+脚本按 `dependencies.json` 中的完整提交号获取依赖，构建 ServerKeybinds、CustomItems、HSM 和教学插件。
 依赖源码位于 `.workspace`，依赖 DLL 位于 `.dependencies`；它们不提交到 Git。
 项目通过 NuGet 还原 .NET Framework 4.8 引用程序集，不需要从别人电脑复制开发包。
 脚本不会切换或清理已有依赖目录；版本不匹配时，指定新的 `-SourceRoot`。
@@ -42,7 +42,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-foundations.ps
 同时修改依赖源码时，可以显式使用自己的同级工作树：
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-foundations.ps1 -SourceRoot 'D:\Cement\worktrees' -UseLocalSources
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-foundations.ps1 -SourceRoot 'D:\SCPSL\worktrees' -UseLocalSources
 ```
 
 该目录应包含 `ServerKeybinds`、`CustomItems` 和 `HintServiceMeow`。此选项跳过提交锁定检查，只用于开发；提交 PR 时说明实际使用的版本。
@@ -66,7 +66,7 @@ dotnet build ScpslPluginExamples.sln -c Release -p:LabApiGlobalDependenciesPath=
 ## 版本与证据
 
 依赖库以 `dependencies.json` 的提交号为准，不能只看 DLL 的 API 主版本号。
-HSM 从 [Cement 源码仓库](https://github.com/sl-plugins-cement/HintServiceMeow) 的锁定提交构建。
+HSM 从 [HSM 源码仓库](https://github.com/sl-plugins-cement/HintServiceMeow) 的锁定提交构建。
 版本为 `5.5.1-cement.1`。构建输出同时包含匹配的 `0Harmony.dll`，不下载官方 HSM DLL。
 原有 `-DownloadHsm` 参数仍可使用，但 HSM 现在始终从源码构建。
 
