@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoleProvider", "examples\Cr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoleConsumer", "examples\CrossPluginRoles\RoleConsumer\RoleConsumer.csproj", "{BAE06893-2E71-4D62-9D9B-7CB7E679BBD5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foundations", "examples\Foundations\Foundations.csproj", "{590F3CC8-3E82-4776-AE17-5D9528EED2DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,18 @@ Global
 		{BAE06893-2E71-4D62-9D9B-7CB7E679BBD5}.Release|x64.Build.0 = Release|Any CPU
 		{BAE06893-2E71-4D62-9D9B-7CB7E679BBD5}.Release|x86.ActiveCfg = Release|Any CPU
 		{BAE06893-2E71-4D62-9D9B-7CB7E679BBD5}.Release|x86.Build.0 = Release|Any CPU
+		{590F3CC8-3E82-4776-AE17-5D9528EED2DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{590F3CC8-3E82-4776-AE17-5D9528EED2DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{590F3CC8-3E82-4776-AE17-5D9528EED2DB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{590F3CC8-3E82-4776-AE17-5D9528EED2DB}.Debug|x64.Build.0 = Debug|Any CPU
+		{590F3CC8-3E82-4776-AE17-5D9528EED2DB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{590F3CC8-3E82-4776-AE17-5D9528EED2DB}.Debug|x86.Build.0 = Debug|Any CPU
+		{590F3CC8-3E82-4776-AE17-5D9528EED2DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{590F3CC8-3E82-4776-AE17-5D9528EED2DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{590F3CC8-3E82-4776-AE17-5D9528EED2DB}.Release|x64.ActiveCfg = Release|Any CPU
+		{590F3CC8-3E82-4776-AE17-5D9528EED2DB}.Release|x64.Build.0 = Release|Any CPU
+		{590F3CC8-3E82-4776-AE17-5D9528EED2DB}.Release|x86.ActiveCfg = Release|Any CPU
+		{590F3CC8-3E82-4776-AE17-5D9528EED2DB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,5 +84,6 @@ Global
 		{B0D0124A-C509-D29E-8F62-7191AFD6F796} = {B36A84DF-456D-A817-6EDD-3EC3E7F6E11F}
 		{CA4C0701-5A95-4F09-BCB9-93921EA19510} = {B0D0124A-C509-D29E-8F62-7191AFD6F796}
 		{BAE06893-2E71-4D62-9D9B-7CB7E679BBD5} = {B0D0124A-C509-D29E-8F62-7191AFD6F796}
+		{590F3CC8-3E82-4776-AE17-5D9528EED2DB} = {B36A84DF-456D-A817-6EDD-3EC3E7F6E11F}
 	EndGlobalSection
 EndGlobal

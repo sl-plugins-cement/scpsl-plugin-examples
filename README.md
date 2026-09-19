@@ -2,6 +2,10 @@
 
 [English](README.en.md)
 
+**新协作者：[从这里开始](docs/start-here.md) → [HSM 样式指南](docs/hsm-style-guide.md) → [基础联动练习](examples/Foundations/README.md)。**
+
+本批课程覆盖 ServerKeybinds、CustomItems 与 HSM；请先运行 scripts/build-foundations.ps1 获取锁定依赖，再构建整个解决方案。协作要求见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+
 这是为 GitHub `sl-plugins-cement` 组织中的 Cement 团队准备的 LabAPI 教学仓库。每个示例都可以
 直接阅读源码并独立构建，只演示一个重点，不会用额外框架隐藏关键代码。
 

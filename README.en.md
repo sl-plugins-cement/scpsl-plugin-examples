@@ -2,6 +2,8 @@
 
 [简体中文](README.md)
 
+新增中文基础课程：[环境搭建](docs/start-here.md)、[HSM 样式](docs/hsm-style-guide.md)、[联动示例](examples/Foundations/README.md)。构建整个解决方案前，请运行 scripts/build-foundations.ps1 准备锁定依赖。
+
 An educational LabAPI repository for the Cement team in the `sl-plugins-cement` GitHub organization.
 Every example is source-readable, independently buildable, and intended to show one technique without
 hiding the important line behind a framework.
