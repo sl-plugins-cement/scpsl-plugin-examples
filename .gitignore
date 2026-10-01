@@ -3,4 +3,7 @@ obj/
 .vs/
 *.user
 *.suo
+.dependencies/
+.workspace/
+artifacts/
 
