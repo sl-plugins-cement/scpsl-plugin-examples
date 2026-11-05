@@ -1,0 +1,70 @@
+const cementStyles = [
+  {
+    "name": "画廊",
+    "description": "对应 cement gallery；三条独立 Hint，12 秒后结束。",
+    "entries": [
+      {
+        "id": "cement.foundations.title",
+        "system": "hsm",
+        "text": "<color=#4FCBFF>入门练习</color>",
+        "x": 0,
+        "y": 650,
+        "textSize": 30,
+        "alignment": "center",
+        "verticalAlign": "middle"
+      },
+      {
+        "id": "cement.foundations.status",
+        "system": "hsm",
+        "text": "<color=#E7ECF3>教学硬币</color>  <color=#5BFF80>已就绪</color>",
+        "x": 0,
+        "y": 700,
+        "textSize": 24,
+        "alignment": "center",
+        "verticalAlign": "middle"
+      },
+      {
+        "id": "cement.foundations.detail",
+        "system": "hsm",
+        "text": "<color=#C0C8D4>手持物品后，使用你绑定的按键</color>",
+        "x": 0,
+        "y": 745,
+        "textSize": 22,
+        "alignment": "center",
+        "verticalAlign": "middle"
+      }
+    ]
+  },
+  {
+    "name": "冷却",
+    "description": "对应手持教学硬币的冷却状态。",
+    "entries": [
+      {
+        "id": "cement.foundations.cooldown",
+        "system": "hsm",
+        "text": "<color=#FFD24D>教学硬币 · 冷却 3.5 秒</color>",
+        "x": 0,
+        "y": 1050,
+        "textSize": 24,
+        "alignment": "center",
+        "verticalAlign": "middle"
+      }
+    ]
+  },
+  {
+    "name": "短通知设计练习",
+    "description": "仅用于样式练习，当前插件没有发送此通知；实现时需自行加入到期移除。",
+    "entries": [
+      {
+        "id": "cement.foundations.notice",
+        "system": "hsm",
+        "text": "<color=#5BFF80>操作完成</color>  <color=#E7ECF3>物品已交接</color>",
+        "x": 0,
+        "y": 700,
+        "textSize": 24,
+        "alignment": "center",
+        "verticalAlign": "middle"
+      }
+    ]
+  }
+];

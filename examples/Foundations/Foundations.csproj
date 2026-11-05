@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>12.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <AssemblyName>Example.CementFoundations</AssemblyName>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <SCP_SL_MANAGED Condition="'$(SCP_SL_MANAGED)' == ''">C:\Program Files (x86)\Steam\steamapps\common\SCP Secret Laboratory Dedicated Server\SCPSL_Data\Managed</SCP_SL_MANAGED>
+    <CementDependenciesPath Condition="'$(CementDependenciesPath)' == ''">$(MSBuildThisFileDirectory)..\..\.dependencies</CementDependenciesPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net48" Version="1.0.3" PrivateAssets="all" />
+    <Reference Include="ServerKeybinds" HintPath="$(CementDependenciesPath)\ServerKeybinds.dll" Private="false" />
+    <Reference Include="CustomItems" HintPath="$(CementDependenciesPath)\CustomItems.dll" Private="false" />
+    <Reference Include="Assembly-CSharp" HintPath="$(SCP_SL_MANAGED)\Assembly-CSharp.dll" Private="false" />
+    <Reference Include="Assembly-CSharp-firstpass" HintPath="$(SCP_SL_MANAGED)\Assembly-CSharp-firstpass.dll" Private="false" />
+    <Reference Include="CommandSystem.Core" HintPath="$(SCP_SL_MANAGED)\CommandSystem.Core.dll" Private="false" />
+    <Reference Include="LabApi" HintPath="$(SCP_SL_MANAGED)\LabApi.dll" Private="false" />
+    <Reference Include="Mirror" HintPath="$(SCP_SL_MANAGED)\Mirror.dll" Private="false" />
+    <Reference Include="UnityEngine.CoreModule" HintPath="$(SCP_SL_MANAGED)\UnityEngine.CoreModule.dll" Private="false" />
+    <Reference Include="UnityEngine.InputLegacyModule" HintPath="$(SCP_SL_MANAGED)\UnityEngine.InputLegacyModule.dll" Private="false" />
+  </ItemGroup>
+  <Target Name="CheckCementDependencies" BeforeTargets="ResolveReferences">
+    <Error Condition="!Exists('$(CementDependenciesPath)\ServerKeybinds.dll') Or !Exists('$(CementDependenciesPath)\CustomItems.dll')" Text="请先运行 scripts/build-foundations.ps1，或指定 CementDependenciesPath。" />
+  </Target>
+</Project>
