@@ -107,7 +107,7 @@ internal sealed class DemoActor
             Hub.roleManager.ServerSetRole(
                 role,
                 RoleChangeReason.RemoteAdmin,
-                withLoadout ? RoleSpawnFlags.AssignInventory : RoleSpawnFlags.None);
+                RoleIntro.Flags(withLoadout ? RoleSpawnFlags.AssignInventory : RoleSpawnFlags.None, IntroIntent.Hidden));
         }
         catch (Exception exception)
         {
